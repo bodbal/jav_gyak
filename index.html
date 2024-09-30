@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+<body>
+<script>
+//1.feladat
+let length = 10.4;
+let width = 13.5;
+let height = 8.2;
+
+
+let surfaceArea = 2 * (length * width + width * height + height * length);
+
+
+let volume = length * width * height;
+
+
+console.log("Surface Area: " + surfaceArea.toFixed(2));
+console.log("Volume: " + volume.toFixed(2));
+
+//2. feladat
+
+
+let mass_in_kg = 81.2;
+let height_in_m = 1.78;
+
+
+let bmi = mass_in_kg / (height_in_m * height_in_m);
+
+
+console.log("BMI: " + bmi.toFixed(2));
+
+//3.feladat
+
+function isLeapYear(year) {
+    if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+let years = [2000, 2004, 1904, 2024, 1600, 1900, 1929, 1933, 2023, 1867];
+
+years.forEach(year => {
+    if (isLeapYear(year)) {
+        console.log(year + " is a leap year.");
+    } else {
+        console.log(year + " is not a leap year.");
+    }
+});
+
+//4.feladat
+let my_string = 'apple';
+
+for (let i = 0; i < my_string.length; i++) {
+    console.log(my_string[i]);
+}
+//5.feladat
+let number = 268;
+
+
+let numberString = number.toString();
+
+
+let sum = 0;
+
+
+for (let i = 0; i < numberString.length; i++) {
+    
+    sum += parseInt(numberString[i]);
+}
+
+
+let average = sum / numberString.length;
+
+
+console.log("The average of digits is " + average);
+//6. feladat
+let my_string2 = 'hello123world';
+
+function isLetter(char) {
+    return /^[a-zA-Z]$/.test(char); 
+}
+
+
+for (let i = 0; i < my_string2.length; i++) {
+    let char = my_string2[i];
+    
+
+    if (isLetter(char)) {
+        console.log(char);
+    } else {
+
+        break;
+    }
+}
+//7.feladat
+let number2 = 10;
+
+
+function printDivisors(num) {
+    let divisor = 1;
+    let result = num + ': ';
+    while (divisor <= num) {
+        
+        if (num % divisor === 0) {
+            result += divisor + ', ';
+        }
+        divisor++;
+    }
+    console.log(result);
+}
+
+
+while (number <= 30) {
+    printDivisors(number);
+    number++;
+}
+//8.feladat
+let currentHours = 14;
+let currentMinutes = 34;
+let currentSeconds = 42;
+
+
+let totalSecondsInDay = 24 * 60 * 60;
+
+
+let secondsPassed = (currentHours * 60 * 60) + (currentMinutes * 60) + currentSeconds;
+
+
+let remainingSeconds = totalSecondsInDay - secondsPassed;
+
+
+console.log("Remaining seconds in the day: " + remainingSeconds);
+//9.feladat
+function getLetterGrade(score) {
+    if (score >= 90) {
+        return 'A';
+    } else if (score >= 80) {
+        return 'B';
+    } else if (score >= 70) {
+        return 'C';
+    } else if (score >= 60) {
+        return 'D';
+    } else {
+        return 'F';
+    }
+}
+
+let score = 85;
+
+console.log("The letter grade is: " + getLetterGrade(score));
+//10.feladat
+function determineWinner(player1, player2) {
+    if (player1 === player2) {
+        return "The game is a tie.";
+    } else if ((player1 === 0 && player2 === 2) || 
+               (player1 === 1 && player2 === 0) || 
+               (player1 === 2 && player2 === 1)) { 
+        return "The first player wins.";
+    } else {
+        return "The second player wins.";
+    }
+}
+
+
+let player1Input = 0; 
+let player2Input = 2; 
+
+console.log(determineWinner(player1Input, player2Input));
+//11.feladat
+let number3 = 3;
+
+let factorial = 1;
+
+for (let i = 1; i <= number3; i++) {
+    factorial *= i; 
+}
+
+console.log(number3 + " factorial is " + factorial + ".");
+//12.feladat
+function drawSquare(size) {
+    for (let i = 0; i < size; i++) {
+        let row = '';
+        
+        for (let j = 0; j < size; j++) {
+
+            if (i === 0 || i === size - 1 || j === 0 || j === size - 1 || i === j) {
+                row += '%'; 
+            } else {
+                row += ' '; 
+            }
+        }
+        
+        console.log(row); 
+    }
+}
+
+
+const prompt = require('prompt-sync')(); 
+let size = parseInt(prompt('Please enter the square size: '), 10);
+
+drawSquare(size);
+//13.feladat
+function printNumbers() {
+    let skipCount = 1; 
+    let currentCount = 0;
+    let output = []; 
+
+    for (let i = 1; i <= 100; i++) {
+        
+        if (i % 3 === 0) {
+            currentCount++; 
+
+            
+            if (currentCount === skipCount) {
+                skipCount++; 
+                continue; 
+            }
+        }
+        
+
+        output.push(i);
+    }
+
+
+    console.log(output.join(', '));
+}
+
+printNumbers();
+//14.feladat
+function fizzBuzz(maxNumber) {
+    let output = []; 
+
+    for (let i = 1; i <= maxNumber; i++) {
+        
+        if (i % 3 === 0 && i % 5 === 0) {
+            output.push("fizzbuzz"); 
+        } else if (i % 3 === 0) {
+            output.push("fizz"); 
+        } else if (i % 5 === 0) {
+            output.push("buzz");
+        } else {
+            output.push(i); 
+        }
+    }
+
+   
+    console.log(output.join(', '));
+}
+
+
+fizzBuzz(100);
+
+</script>
+</body>
+</html>
